@@ -1,1 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Navigation Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .nav-bar {
+            background-color: #333;
+            overflow: hidden;
+            padding: 10px 0;
+        }
+        .nav-bar button {
+            background-color: #444;
+            border: none;
+            color: white;
+            padding: 14px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .nav-bar button:hover {
+            background-color: #555;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
 
+    <div class="nav-bar">
+        <button onclick="navigateTo('mainList')">MAIN LIST</button>
+        <button onclick="navigateTo('extendedList')">EXTENDED LIST</button>
+        <button onclick="navigateTo('legacyList')">LEGACY LIST</button>
+    </div>
+
+    <div class="content" id="mainList">
+        <h1>Welcome to the MAIN LIST</h1>
+        <p>This is the content of the Main List section.</p>
+    </div>
+
+    <div class="content" id="extendedList" style="display:none;">
+        <h1>Welcome to the EXTENDED LIST</h1>
+        <p>This is the content of the Extended List section.</p>
+    </div>
+
+    <div class="content" id="legacyList" style="display:none;">
+        <h1>Welcome to the LEGACY LIST</h1>
+        <p>This is the content of the Legacy List section.</p>
+    </div>
+
+    <script>
+        function navigateTo(sectionId) {
+            // Hide all content sections
+            const sections = document.querySelectorAll('.content');
+            sections.forEach(section => section.style.display = 'none');
+            
+            // Show the selected section
+            document.getElementById(sectionId).style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
